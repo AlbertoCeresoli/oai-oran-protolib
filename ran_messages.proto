@@ -18,6 +18,7 @@ message RAN_param_map_entry{
         int64 int64_value  = 2;
         string string_value = 3;
         ue_list_m ue_list = 4;
+        rrmPolicyRatio_m  rrmPolicyRatio = 5;
     }
 }
 
@@ -43,6 +44,17 @@ message RAN_message{
         RAN_indication_response ran_indication_response = 3;
         RAN_control_request ran_control_request = 4;
     }
+}
+
+/* Slice policy */
+message slice_policy_m{
+    optional int32 s_id = 1;
+    optional int32 min_ratio = 2;
+    optional int32 max_ratio = 3;
+}
+
+message rrmPolicyRatio_m{
+    repeated slice_policy_m slice_policies = 1;
 }
 
 message ue_info_m{

@@ -232,6 +232,96 @@ void   ran_message__free_unpacked
   assert(message->base.descriptor == &ran_message__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   slice_policy_m__init
+                     (SlicePolicyM         *message)
+{
+  static const SlicePolicyM init_value = SLICE_POLICY_M__INIT;
+  *message = init_value;
+}
+size_t slice_policy_m__get_packed_size
+                     (const SlicePolicyM *message)
+{
+  assert(message->base.descriptor == &slice_policy_m__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t slice_policy_m__pack
+                     (const SlicePolicyM *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &slice_policy_m__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t slice_policy_m__pack_to_buffer
+                     (const SlicePolicyM *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &slice_policy_m__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+SlicePolicyM *
+       slice_policy_m__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (SlicePolicyM *)
+     protobuf_c_message_unpack (&slice_policy_m__descriptor,
+                                allocator, len, data);
+}
+void   slice_policy_m__free_unpacked
+                     (SlicePolicyM *message,
+                      ProtobufCAllocator *allocator)
+{
+  if(!message)
+    return;
+  assert(message->base.descriptor == &slice_policy_m__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   rrm_policy_ratio_m__init
+                     (RrmPolicyRatioM         *message)
+{
+  static const RrmPolicyRatioM init_value = RRM_POLICY_RATIO_M__INIT;
+  *message = init_value;
+}
+size_t rrm_policy_ratio_m__get_packed_size
+                     (const RrmPolicyRatioM *message)
+{
+  assert(message->base.descriptor == &rrm_policy_ratio_m__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t rrm_policy_ratio_m__pack
+                     (const RrmPolicyRatioM *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &rrm_policy_ratio_m__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t rrm_policy_ratio_m__pack_to_buffer
+                     (const RrmPolicyRatioM *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &rrm_policy_ratio_m__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+RrmPolicyRatioM *
+       rrm_policy_ratio_m__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (RrmPolicyRatioM *)
+     protobuf_c_message_unpack (&rrm_policy_ratio_m__descriptor,
+                                allocator, len, data);
+}
+void   rrm_policy_ratio_m__free_unpacked
+                     (RrmPolicyRatioM *message,
+                      ProtobufCAllocator *allocator)
+{
+  if(!message)
+    return;
+  assert(message->base.descriptor == &rrm_policy_ratio_m__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 void   ue_info_m__init
                      (UeInfoM         *message)
 {
@@ -322,7 +412,7 @@ void   ue_list_m__free_unpacked
   assert(message->base.descriptor == &ue_list_m__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor ran_param_map_entry__field_descriptors[4] =
+static const ProtobufCFieldDescriptor ran_param_map_entry__field_descriptors[5] =
 {
   {
     "key",
@@ -372,17 +462,30 @@ static const ProtobufCFieldDescriptor ran_param_map_entry__field_descriptors[4] 
     0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "rrmPolicyRatio",
+    5,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(RANParamMapEntry, value_case),
+    offsetof(RANParamMapEntry, rrmpolicyratio),
+    &rrm_policy_ratio_m__descriptor,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned ran_param_map_entry__field_indices_by_name[] = {
   1,   /* field[1] = int64_value */
   0,   /* field[0] = key */
+  4,   /* field[4] = rrmPolicyRatio */
   2,   /* field[2] = string_value */
   3,   /* field[3] = ue_list */
 };
 static const ProtobufCIntRange ran_param_map_entry__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 4 }
+  { 0, 5 }
 };
 const ProtobufCMessageDescriptor ran_param_map_entry__descriptor =
 {
@@ -392,7 +495,7 @@ const ProtobufCMessageDescriptor ran_param_map_entry__descriptor =
   "RANParamMapEntry",
   "",
   sizeof(RANParamMapEntry),
-  4,
+  5,
   ran_param_map_entry__field_descriptors,
   ran_param_map_entry__field_indices_by_name,
   1,  ran_param_map_entry__number_ranges,
@@ -588,6 +691,108 @@ const ProtobufCMessageDescriptor ran_message__descriptor =
   ran_message__field_indices_by_name,
   1,  ran_message__number_ranges,
   (ProtobufCMessageInit) ran_message__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor slice_policy_m__field_descriptors[3] =
+{
+  {
+    "s_id",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(SlicePolicyM, has_s_id),
+    offsetof(SlicePolicyM, s_id),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "min_ratio",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(SlicePolicyM, has_min_ratio),
+    offsetof(SlicePolicyM, min_ratio),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "max_ratio",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(SlicePolicyM, has_max_ratio),
+    offsetof(SlicePolicyM, max_ratio),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned slice_policy_m__field_indices_by_name[] = {
+  2,   /* field[2] = max_ratio */
+  1,   /* field[1] = min_ratio */
+  0,   /* field[0] = s_id */
+};
+static const ProtobufCIntRange slice_policy_m__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor slice_policy_m__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "slice_policy_m",
+  "SlicePolicyM",
+  "SlicePolicyM",
+  "",
+  sizeof(SlicePolicyM),
+  3,
+  slice_policy_m__field_descriptors,
+  slice_policy_m__field_indices_by_name,
+  1,  slice_policy_m__number_ranges,
+  (ProtobufCMessageInit) slice_policy_m__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor rrm_policy_ratio_m__field_descriptors[1] =
+{
+  {
+    "slice_policies",
+    1,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(RrmPolicyRatioM, n_slice_policies),
+    offsetof(RrmPolicyRatioM, slice_policies),
+    &slice_policy_m__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned rrm_policy_ratio_m__field_indices_by_name[] = {
+  0,   /* field[0] = slice_policies */
+};
+static const ProtobufCIntRange rrm_policy_ratio_m__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor rrm_policy_ratio_m__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "rrmPolicyRatio_m",
+  "RrmPolicyRatioM",
+  "RrmPolicyRatioM",
+  "",
+  sizeof(RrmPolicyRatioM),
+  1,
+  rrm_policy_ratio_m__field_descriptors,
+  rrm_policy_ratio_m__field_indices_by_name,
+  1,  rrm_policy_ratio_m__number_ranges,
+  (ProtobufCMessageInit) rrm_policy_ratio_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[6] =
