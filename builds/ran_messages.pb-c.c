@@ -981,17 +981,19 @@ const ProtobufCEnumDescriptor ran_message_type__descriptor =
   ran_message_type__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue ran_parameter__enum_values_by_number[2] =
+static const ProtobufCEnumValue ran_parameter__enum_values_by_number[3] =
 {
   { "GNB_ID", "RAN_PARAMETER__GNB_ID", 1 },
   { "UE_LIST", "RAN_PARAMETER__UE_LIST", 3 },
+  { "RRM_POLICY_RATIO", "RAN_PARAMETER__RRM_POLICY_RATIO", 4 },
 };
 static const ProtobufCIntRange ran_parameter__value_ranges[] = {
-{1, 0},{3, 1},{0, 2}
+{1, 0},{3, 1},{0, 3}
 };
-static const ProtobufCEnumValueIndex ran_parameter__enum_values_by_name[2] =
+static const ProtobufCEnumValueIndex ran_parameter__enum_values_by_name[3] =
 {
   { "GNB_ID", 0 },
+  { "RRM_POLICY_RATIO", 2 },
   { "UE_LIST", 1 },
 };
 const ProtobufCEnumDescriptor ran_parameter__descriptor =
@@ -1001,9 +1003,9 @@ const ProtobufCEnumDescriptor ran_parameter__descriptor =
   "RAN_parameter",
   "RANParameter",
   "",
-  2,
+  3,
   ran_parameter__enum_values_by_number,
-  2,
+  3,
   ran_parameter__enum_values_by_name,
   2,
   ran_parameter__value_ranges,
