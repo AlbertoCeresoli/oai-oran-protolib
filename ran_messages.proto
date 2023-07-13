@@ -23,7 +23,7 @@ message RAN_param_map_entry{
 
 /* RAN SUBMESSAGES */
 message RAN_indication_request{
-    repeated RAN_parameter target_params = 1;
+    repeated RAN_param_map_entry target_params = 1;
 }
 
 message RAN_indication_response{
