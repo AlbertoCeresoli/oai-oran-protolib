@@ -8,6 +8,7 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -19,8 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='ran_messages.proto',
   package='',
   syntax='proto2',
-  serialized_options=None,
-  serialized_pb=_b('\n\x12ran_messages.proto\"\x89\x01\n\x13RAN_param_map_entry\x12\x1b\n\x03key\x18\x01 \x02(\x0e\x32\x0e.RAN_parameter\x12\x15\n\x0bint64_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x12\x1d\n\x07ue_list\x18\x04 \x01(\x0b\x32\n.ue_list_mH\x00\x42\x07\n\x05value\"?\n\x16RAN_indication_request\x12%\n\rtarget_params\x18\x01 \x03(\x0e\x32\x0e.RAN_parameter\"B\n\x17RAN_indication_response\x12\'\n\tparam_map\x18\x01 \x03(\x0b\x32\x14.RAN_param_map_entry\"E\n\x13RAN_control_request\x12.\n\x10target_param_map\x18\x01 \x03(\x0b\x32\x14.RAN_param_map_entry\"\xea\x01\n\x0bRAN_message\x12#\n\x08msg_type\x18\x01 \x02(\x0e\x32\x11.RAN_message_type\x12\x39\n\x16ran_indication_request\x18\x02 \x01(\x0b\x32\x17.RAN_indication_requestH\x00\x12;\n\x17ran_indication_response\x18\x03 \x01(\x0b\x32\x18.RAN_indication_responseH\x00\x12\x33\n\x13ran_control_request\x18\x04 \x01(\x0b\x32\x14.RAN_control_requestH\x00\x42\t\n\x07payload\"x\n\tue_info_m\x12\x0c\n\x04rnti\x18\x01 \x02(\x05\x12\x13\n\x0bmeas_type_1\x18\x02 \x01(\x02\x12\x13\n\x0bmeas_type_2\x18\x03 \x01(\x02\x12\x13\n\x0bmeas_type_3\x18\x04 \x01(\x02\x12\x0e\n\x06prop_1\x18\x05 \x01(\x08\x12\x0e\n\x06prop_2\x18\x06 \x01(\x02\"?\n\tue_list_m\x12\x15\n\rconnected_ues\x18\x01 \x02(\x05\x12\x1b\n\x07ue_info\x18\x02 \x03(\x0b\x32\n.ue_info_m*b\n\x10RAN_message_type\x12\x10\n\x0cSUBSCRIPTION\x10\x01\x12\x16\n\x12INDICATION_REQUEST\x10\x02\x12\x17\n\x13INDICATION_RESPONSE\x10\x03\x12\x0b\n\x07\x43ONTROL\x10\x04*(\n\rRAN_parameter\x12\n\n\x06GNB_ID\x10\x01\x12\x0b\n\x07UE_LIST\x10\x03')
+  serialized_pb=_b('\n\x12ran_messages.proto\"\xd1\x01\n\x13RAN_param_map_entry\x12\x1b\n\x03key\x18\x01 \x02(\x0e\x32\x0e.RAN_parameter\x12\x15\n\x0bint64_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x12\x1d\n\x07ue_list\x18\x04 \x01(\x0b\x32\n.ue_list_mH\x00\x12\x1f\n\x08srs_list\x18\x05 \x01(\x0b\x32\x0b.srs_list_mH\x00\x12%\n\x0bta_pow_list\x18\x06 \x01(\x0b\x32\x0e.ta_pow_list_mH\x00\x42\x07\n\x05value\"X\n\x18RAN_subscription_request\x12\x0c\n\x04rnti\x18\x01 \x02(\r\x12\x1b\n\x03key\x18\x02 \x02(\x0e\x32\x0e.RAN_parameter\x12\x11\n\tsubscribe\x18\x03 \x02(\x08\"T\n\x14RAN_subscription_ack\x12\x0c\n\x04rnti\x18\x01 \x02(\r\x12\x1b\n\x03key\x18\x02 \x02(\x0e\x32\x0e.RAN_parameter\x12\x11\n\tsubscribe\x18\x03 \x02(\x08\"E\n\x16RAN_indication_request\x12+\n\rtarget_params\x18\x01 \x03(\x0b\x32\x14.RAN_param_map_entry\"B\n\x17RAN_indication_response\x12\'\n\tparam_map\x18\x01 \x03(\x0b\x32\x14.RAN_param_map_entry\"E\n\x13RAN_control_request\x12.\n\x10target_param_map\x18\x01 \x03(\x0b\x32\x14.RAN_param_map_entry\"\xe0\x02\n\x0bRAN_message\x12#\n\x08msg_type\x18\x01 \x02(\x0e\x32\x11.RAN_message_type\x12=\n\x18ran_subscription_request\x18\x02 \x01(\x0b\x32\x19.RAN_subscription_requestH\x00\x12\x35\n\x14ran_subscription_ack\x18\x03 \x01(\x0b\x32\x15.RAN_subscription_ackH\x00\x12\x39\n\x16ran_indication_request\x18\x04 \x01(\x0b\x32\x17.RAN_indication_requestH\x00\x12;\n\x17ran_indication_response\x18\x05 \x01(\x0b\x32\x18.RAN_indication_responseH\x00\x12\x33\n\x13ran_control_request\x18\x06 \x01(\x0b\x32\x14.RAN_control_requestH\x00\x42\t\n\x07payload\"\xe1\x01\n\tue_info_m\x12\x0c\n\x04rnti\x18\x01 \x02(\x05\x12\x0e\n\x06is_gbr\x18\x02 \x01(\x08\x12\x12\n\ntbs_avg_dl\x18\x03 \x01(\x02\x12\x12\n\ntbs_avg_ul\x18\x04 \x01(\x02\x12 \n\x18\x64l_mac_buffer_occupation\x18\x05 \x01(\x05\x12\x13\n\x0b\x61vg_prbs_dl\x18\x06 \x01(\x02\x12\x0b\n\x03mcs\x18\x07 \x01(\x05\x12\x1a\n\x12\x61vg_tbs_per_prb_dl\x18\x08 \x01(\x02\x12\x16\n\x0etbs_dl_toapply\x18\t \x01(\x02\x12\x16\n\x0etbs_ul_toapply\x18\n \x01(\x02\"?\n\tue_list_m\x12\x15\n\rconnected_ues\x18\x01 \x02(\x05\x12\x1b\n\x07ue_info\x18\x02 \x03(\x0b\x32\n.ue_info_m\"\x1f\n\x0csrs_signal_m\x12\x0f\n\x07symbols\x18\x01 \x03(\x05\"I\n\nsrs_list_m\x12\x0c\n\x04rnti\x18\x01 \x03(\r\x12\x11\n\ttimestamp\x18\x02 \x03(\x03\x12\x1a\n\x03srs\x18\x03 \x03(\x0b\x32\r.srs_signal_m\"x\n\rta_pow_list_m\x12\x0c\n\x04rnti\x18\x01 \x03(\r\x12\x14\n\x0ctimestamp_ta\x18\x02 \x03(\x03\x12\n\n\x02ta\x18\x03 \x03(\x05\x12\x13\n\x0bis_ta_first\x18\x04 \x03(\x08\x12\x15\n\rtimestamp_pow\x18\x05 \x03(\x03\x12\x0b\n\x03pow\x18\x06 \x03(\x05*x\n\x10RAN_message_type\x12\x10\n\x0cSUBSCRIPTION\x10\x01\x12\x14\n\x10SUBSCRIPTION_ACK\x10\x02\x12\x16\n\x12INDICATION_REQUEST\x10\x03\x12\x17\n\x13INDICATION_RESPONSE\x10\x04\x12\x0b\n\x07\x43ONTROL\x10\x05*G\n\rRAN_parameter\x12\n\n\x06GNB_ID\x10\x01\x12\x0b\n\x07UE_LIST\x10\x02\x12\x0c\n\x08SRS_LIST\x10\x03\x12\x0f\n\x0bTA_POW_LIST\x10\x04')
 )
 
 _RAN_MESSAGE_TYPE = _descriptor.EnumDescriptor(
@@ -31,25 +31,29 @@ _RAN_MESSAGE_TYPE = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='SUBSCRIPTION', index=0, number=1,
-      serialized_options=None,
+      options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='INDICATION_REQUEST', index=1, number=2,
-      serialized_options=None,
+      name='SUBSCRIPTION_ACK', index=1, number=2,
+      options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='INDICATION_RESPONSE', index=2, number=3,
-      serialized_options=None,
+      name='INDICATION_REQUEST', index=2, number=3,
+      options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CONTROL', index=3, number=4,
-      serialized_options=None,
+      name='INDICATION_RESPONSE', index=3, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CONTROL', index=4, number=5,
+      options=None,
       type=None),
   ],
   containing_type=None,
-  serialized_options=None,
-  serialized_start=790,
-  serialized_end=888,
+  options=None,
+  serialized_start=1498,
+  serialized_end=1618,
 )
 _sym_db.RegisterEnumDescriptor(_RAN_MESSAGE_TYPE)
 
@@ -62,27 +66,38 @@ _RAN_PARAMETER = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='GNB_ID', index=0, number=1,
-      serialized_options=None,
+      options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UE_LIST', index=1, number=3,
-      serialized_options=None,
+      name='UE_LIST', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SRS_LIST', index=2, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TA_POW_LIST', index=3, number=4,
+      options=None,
       type=None),
   ],
   containing_type=None,
-  serialized_options=None,
-  serialized_start=890,
-  serialized_end=930,
+  options=None,
+  serialized_start=1620,
+  serialized_end=1691,
 )
 _sym_db.RegisterEnumDescriptor(_RAN_PARAMETER)
 
 RAN_parameter = enum_type_wrapper.EnumTypeWrapper(_RAN_PARAMETER)
 SUBSCRIPTION = 1
-INDICATION_REQUEST = 2
-INDICATION_RESPONSE = 3
-CONTROL = 4
+SUBSCRIPTION_ACK = 2
+INDICATION_REQUEST = 3
+INDICATION_RESPONSE = 4
+CONTROL = 5
 GNB_ID = 1
-UE_LIST = 3
+UE_LIST = 2
+SRS_LIST = 3
+TA_POW_LIST = 4
 
 
 
@@ -99,35 +114,49 @@ _RAN_PARAM_MAP_ENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='int64_value', full_name='RAN_param_map_entry.int64_value', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='string_value', full_name='RAN_param_map_entry.string_value', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ue_list', full_name='RAN_param_map_entry.ue_list', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='srs_list', full_name='RAN_param_map_entry.srs_list', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ta_pow_list', full_name='RAN_param_map_entry.ta_pow_list', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
@@ -137,7 +166,97 @@ _RAN_PARAM_MAP_ENTRY = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=23,
-  serialized_end=160,
+  serialized_end=232,
+)
+
+
+_RAN_SUBSCRIPTION_REQUEST = _descriptor.Descriptor(
+  name='RAN_subscription_request',
+  full_name='RAN_subscription_request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rnti', full_name='RAN_subscription_request.rnti', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='RAN_subscription_request.key', index=1,
+      number=2, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='subscribe', full_name='RAN_subscription_request.subscribe', index=2,
+      number=3, type=8, cpp_type=7, label=2,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=234,
+  serialized_end=322,
+)
+
+
+_RAN_SUBSCRIPTION_ACK = _descriptor.Descriptor(
+  name='RAN_subscription_ack',
+  full_name='RAN_subscription_ack',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rnti', full_name='RAN_subscription_ack.rnti', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='RAN_subscription_ack.key', index=1,
+      number=2, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='subscribe', full_name='RAN_subscription_ack.subscribe', index=2,
+      number=3, type=8, cpp_type=7, label=2,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=324,
+  serialized_end=408,
 )
 
 
@@ -150,25 +269,25 @@ _RAN_INDICATION_REQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='target_params', full_name='RAN_indication_request.target_params', index=0,
-      number=1, type=14, cpp_type=8, label=3,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=162,
-  serialized_end=225,
+  serialized_start=410,
+  serialized_end=479,
 )
 
 
@@ -185,21 +304,21 @@ _RAN_INDICATION_RESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=293,
+  serialized_start=481,
+  serialized_end=547,
 )
 
 
@@ -216,21 +335,21 @@ _RAN_CONTROL_REQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=295,
-  serialized_end=364,
+  serialized_start=549,
+  serialized_end=618,
 )
 
 
@@ -247,35 +366,49 @@ _RAN_MESSAGE = _descriptor.Descriptor(
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='ran_indication_request', full_name='RAN_message.ran_indication_request', index=1,
+      name='ran_subscription_request', full_name='RAN_message.ran_subscription_request', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='ran_indication_response', full_name='RAN_message.ran_indication_response', index=2,
+      name='ran_subscription_ack', full_name='RAN_message.ran_subscription_ack', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='ran_control_request', full_name='RAN_message.ran_control_request', index=3,
+      name='ran_indication_request', full_name='RAN_message.ran_indication_request', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ran_indication_response', full_name='RAN_message.ran_indication_response', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ran_control_request', full_name='RAN_message.ran_control_request', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
@@ -284,8 +417,8 @@ _RAN_MESSAGE = _descriptor.Descriptor(
       name='payload', full_name='RAN_message.payload',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=367,
-  serialized_end=601,
+  serialized_start=621,
+  serialized_end=973,
 )
 
 
@@ -302,56 +435,84 @@ _UE_INFO_M = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='meas_type_1', full_name='ue_info_m.meas_type_1', index=1,
-      number=2, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
+      name='is_gbr', full_name='ue_info_m.is_gbr', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='meas_type_2', full_name='ue_info_m.meas_type_2', index=2,
+      name='tbs_avg_dl', full_name='ue_info_m.tbs_avg_dl', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='meas_type_3', full_name='ue_info_m.meas_type_3', index=3,
+      name='tbs_avg_ul', full_name='ue_info_m.tbs_avg_ul', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='prop_1', full_name='ue_info_m.prop_1', index=4,
-      number=5, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='dl_mac_buffer_occupation', full_name='ue_info_m.dl_mac_buffer_occupation', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
-      name='prop_2', full_name='ue_info_m.prop_2', index=5,
+      name='avg_prbs_dl', full_name='ue_info_m.avg_prbs_dl', index=5,
       number=6, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mcs', full_name='ue_info_m.mcs', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='avg_tbs_per_prb_dl', full_name='ue_info_m.avg_tbs_per_prb_dl', index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='tbs_dl_toapply', full_name='ue_info_m.tbs_dl_toapply', index=8,
+      number=9, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='tbs_ul_toapply', full_name='ue_info_m.tbs_ul_toapply', index=9,
+      number=10, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=603,
-  serialized_end=723,
+  serialized_start=976,
+  serialized_end=1201,
 )
 
 
@@ -368,32 +529,176 @@ _UE_LIST_M = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ue_info', full_name='ue_list_m.ue_info', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  options=None,
   is_extendable=False,
   syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=725,
-  serialized_end=788,
+  serialized_start=1203,
+  serialized_end=1266,
+)
+
+
+_SRS_SIGNAL_M = _descriptor.Descriptor(
+  name='srs_signal_m',
+  full_name='srs_signal_m',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='symbols', full_name='srs_signal_m.symbols', index=0,
+      number=1, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1268,
+  serialized_end=1299,
+)
+
+
+_SRS_LIST_M = _descriptor.Descriptor(
+  name='srs_list_m',
+  full_name='srs_list_m',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rnti', full_name='srs_list_m.rnti', index=0,
+      number=1, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='srs_list_m.timestamp', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='srs', full_name='srs_list_m.srs', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1301,
+  serialized_end=1374,
+)
+
+
+_TA_POW_LIST_M = _descriptor.Descriptor(
+  name='ta_pow_list_m',
+  full_name='ta_pow_list_m',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rnti', full_name='ta_pow_list_m.rnti', index=0,
+      number=1, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp_ta', full_name='ta_pow_list_m.timestamp_ta', index=1,
+      number=2, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='ta', full_name='ta_pow_list_m.ta', index=2,
+      number=3, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='is_ta_first', full_name='ta_pow_list_m.is_ta_first', index=3,
+      number=4, type=8, cpp_type=7, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp_pow', full_name='ta_pow_list_m.timestamp_pow', index=4,
+      number=5, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pow', full_name='ta_pow_list_m.pow', index=5,
+      number=6, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1376,
+  serialized_end=1496,
 )
 
 _RAN_PARAM_MAP_ENTRY.fields_by_name['key'].enum_type = _RAN_PARAMETER
 _RAN_PARAM_MAP_ENTRY.fields_by_name['ue_list'].message_type = _UE_LIST_M
+_RAN_PARAM_MAP_ENTRY.fields_by_name['srs_list'].message_type = _SRS_LIST_M
+_RAN_PARAM_MAP_ENTRY.fields_by_name['ta_pow_list'].message_type = _TA_POW_LIST_M
 _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value'].fields.append(
   _RAN_PARAM_MAP_ENTRY.fields_by_name['int64_value'])
 _RAN_PARAM_MAP_ENTRY.fields_by_name['int64_value'].containing_oneof = _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value']
@@ -403,13 +708,29 @@ _RAN_PARAM_MAP_ENTRY.fields_by_name['string_value'].containing_oneof = _RAN_PARA
 _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value'].fields.append(
   _RAN_PARAM_MAP_ENTRY.fields_by_name['ue_list'])
 _RAN_PARAM_MAP_ENTRY.fields_by_name['ue_list'].containing_oneof = _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value']
-_RAN_INDICATION_REQUEST.fields_by_name['target_params'].enum_type = _RAN_PARAMETER
+_RAN_PARAM_MAP_ENTRY.oneofs_by_name['value'].fields.append(
+  _RAN_PARAM_MAP_ENTRY.fields_by_name['srs_list'])
+_RAN_PARAM_MAP_ENTRY.fields_by_name['srs_list'].containing_oneof = _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value']
+_RAN_PARAM_MAP_ENTRY.oneofs_by_name['value'].fields.append(
+  _RAN_PARAM_MAP_ENTRY.fields_by_name['ta_pow_list'])
+_RAN_PARAM_MAP_ENTRY.fields_by_name['ta_pow_list'].containing_oneof = _RAN_PARAM_MAP_ENTRY.oneofs_by_name['value']
+_RAN_SUBSCRIPTION_REQUEST.fields_by_name['key'].enum_type = _RAN_PARAMETER
+_RAN_SUBSCRIPTION_ACK.fields_by_name['key'].enum_type = _RAN_PARAMETER
+_RAN_INDICATION_REQUEST.fields_by_name['target_params'].message_type = _RAN_PARAM_MAP_ENTRY
 _RAN_INDICATION_RESPONSE.fields_by_name['param_map'].message_type = _RAN_PARAM_MAP_ENTRY
 _RAN_CONTROL_REQUEST.fields_by_name['target_param_map'].message_type = _RAN_PARAM_MAP_ENTRY
 _RAN_MESSAGE.fields_by_name['msg_type'].enum_type = _RAN_MESSAGE_TYPE
+_RAN_MESSAGE.fields_by_name['ran_subscription_request'].message_type = _RAN_SUBSCRIPTION_REQUEST
+_RAN_MESSAGE.fields_by_name['ran_subscription_ack'].message_type = _RAN_SUBSCRIPTION_ACK
 _RAN_MESSAGE.fields_by_name['ran_indication_request'].message_type = _RAN_INDICATION_REQUEST
 _RAN_MESSAGE.fields_by_name['ran_indication_response'].message_type = _RAN_INDICATION_RESPONSE
 _RAN_MESSAGE.fields_by_name['ran_control_request'].message_type = _RAN_CONTROL_REQUEST
+_RAN_MESSAGE.oneofs_by_name['payload'].fields.append(
+  _RAN_MESSAGE.fields_by_name['ran_subscription_request'])
+_RAN_MESSAGE.fields_by_name['ran_subscription_request'].containing_oneof = _RAN_MESSAGE.oneofs_by_name['payload']
+_RAN_MESSAGE.oneofs_by_name['payload'].fields.append(
+  _RAN_MESSAGE.fields_by_name['ran_subscription_ack'])
+_RAN_MESSAGE.fields_by_name['ran_subscription_ack'].containing_oneof = _RAN_MESSAGE.oneofs_by_name['payload']
 _RAN_MESSAGE.oneofs_by_name['payload'].fields.append(
   _RAN_MESSAGE.fields_by_name['ran_indication_request'])
 _RAN_MESSAGE.fields_by_name['ran_indication_request'].containing_oneof = _RAN_MESSAGE.oneofs_by_name['payload']
@@ -420,13 +741,19 @@ _RAN_MESSAGE.oneofs_by_name['payload'].fields.append(
   _RAN_MESSAGE.fields_by_name['ran_control_request'])
 _RAN_MESSAGE.fields_by_name['ran_control_request'].containing_oneof = _RAN_MESSAGE.oneofs_by_name['payload']
 _UE_LIST_M.fields_by_name['ue_info'].message_type = _UE_INFO_M
+_SRS_LIST_M.fields_by_name['srs'].message_type = _SRS_SIGNAL_M
 DESCRIPTOR.message_types_by_name['RAN_param_map_entry'] = _RAN_PARAM_MAP_ENTRY
+DESCRIPTOR.message_types_by_name['RAN_subscription_request'] = _RAN_SUBSCRIPTION_REQUEST
+DESCRIPTOR.message_types_by_name['RAN_subscription_ack'] = _RAN_SUBSCRIPTION_ACK
 DESCRIPTOR.message_types_by_name['RAN_indication_request'] = _RAN_INDICATION_REQUEST
 DESCRIPTOR.message_types_by_name['RAN_indication_response'] = _RAN_INDICATION_RESPONSE
 DESCRIPTOR.message_types_by_name['RAN_control_request'] = _RAN_CONTROL_REQUEST
 DESCRIPTOR.message_types_by_name['RAN_message'] = _RAN_MESSAGE
 DESCRIPTOR.message_types_by_name['ue_info_m'] = _UE_INFO_M
 DESCRIPTOR.message_types_by_name['ue_list_m'] = _UE_LIST_M
+DESCRIPTOR.message_types_by_name['srs_signal_m'] = _SRS_SIGNAL_M
+DESCRIPTOR.message_types_by_name['srs_list_m'] = _SRS_LIST_M
+DESCRIPTOR.message_types_by_name['ta_pow_list_m'] = _TA_POW_LIST_M
 DESCRIPTOR.enum_types_by_name['RAN_message_type'] = _RAN_MESSAGE_TYPE
 DESCRIPTOR.enum_types_by_name['RAN_parameter'] = _RAN_PARAMETER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -437,6 +764,20 @@ RAN_param_map_entry = _reflection.GeneratedProtocolMessageType('RAN_param_map_en
   # @@protoc_insertion_point(class_scope:RAN_param_map_entry)
   ))
 _sym_db.RegisterMessage(RAN_param_map_entry)
+
+RAN_subscription_request = _reflection.GeneratedProtocolMessageType('RAN_subscription_request', (_message.Message,), dict(
+  DESCRIPTOR = _RAN_SUBSCRIPTION_REQUEST,
+  __module__ = 'ran_messages_pb2'
+  # @@protoc_insertion_point(class_scope:RAN_subscription_request)
+  ))
+_sym_db.RegisterMessage(RAN_subscription_request)
+
+RAN_subscription_ack = _reflection.GeneratedProtocolMessageType('RAN_subscription_ack', (_message.Message,), dict(
+  DESCRIPTOR = _RAN_SUBSCRIPTION_ACK,
+  __module__ = 'ran_messages_pb2'
+  # @@protoc_insertion_point(class_scope:RAN_subscription_ack)
+  ))
+_sym_db.RegisterMessage(RAN_subscription_ack)
 
 RAN_indication_request = _reflection.GeneratedProtocolMessageType('RAN_indication_request', (_message.Message,), dict(
   DESCRIPTOR = _RAN_INDICATION_REQUEST,
@@ -479,6 +820,27 @@ ue_list_m = _reflection.GeneratedProtocolMessageType('ue_list_m', (_message.Mess
   # @@protoc_insertion_point(class_scope:ue_list_m)
   ))
 _sym_db.RegisterMessage(ue_list_m)
+
+srs_signal_m = _reflection.GeneratedProtocolMessageType('srs_signal_m', (_message.Message,), dict(
+  DESCRIPTOR = _SRS_SIGNAL_M,
+  __module__ = 'ran_messages_pb2'
+  # @@protoc_insertion_point(class_scope:srs_signal_m)
+  ))
+_sym_db.RegisterMessage(srs_signal_m)
+
+srs_list_m = _reflection.GeneratedProtocolMessageType('srs_list_m', (_message.Message,), dict(
+  DESCRIPTOR = _SRS_LIST_M,
+  __module__ = 'ran_messages_pb2'
+  # @@protoc_insertion_point(class_scope:srs_list_m)
+  ))
+_sym_db.RegisterMessage(srs_list_m)
+
+ta_pow_list_m = _reflection.GeneratedProtocolMessageType('ta_pow_list_m', (_message.Message,), dict(
+  DESCRIPTOR = _TA_POW_LIST_M,
+  __module__ = 'ran_messages_pb2'
+  # @@protoc_insertion_point(class_scope:ta_pow_list_m)
+  ))
+_sym_db.RegisterMessage(ta_pow_list_m)
 
 
 # @@protoc_insertion_point(module_scope)
