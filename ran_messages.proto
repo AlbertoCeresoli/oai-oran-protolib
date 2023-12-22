@@ -9,8 +9,9 @@ enum RAN_message_type{
 
 enum RAN_parameter{
     GNB_ID = 1;
+    SRS_LIST = 2;
     UE_LIST = 3;
-    SRS_UE_INFO = 4;
+    TA_POW_LIST = 4;
 }
 
 message RAN_param_map_entry{
@@ -19,12 +20,18 @@ message RAN_param_map_entry{
         int64 int64_value  = 2;
         string string_value = 3;
         ue_list_m ue_list = 4;
+        srs_list_m srs_list = 5;
+        ta_pow_list_m ta_pow_list = 6;
     }
 }
 
 /* RAN SUBMESSAGES */
 message RAN_indication_request{
     repeated RAN_param_map_entry target_params = 1;
+}
+
+message RAN_subscription_request{
+    repeated RAN_parameter target_params = 1;
 }
 
 message RAN_indication_response{
@@ -70,8 +77,17 @@ message srs_signal_m{
     repeated int32 symbols = 1;
 }
 
-message srs_info_m{
-    repeated int32 rnti = 1;
+message srs_list_m{
+    repeated uint32 rnti = 1;
     repeated int64 timestamp = 2;
     repeated srs_signal_m srs = 3;
+}
+
+message ta_pow_list_m{
+    repeated uint32 rnti = 1;
+    repeated int64 timestamp_ta = 2;
+    repeated int32 ta = 3;
+    repeated bool is_ta_first = 4;
+    repeated int64 timestamp_pow = 5;
+    repeated int32 pow = 6;
 }
