@@ -22,6 +22,7 @@ typedef struct _RANControlRequest RANControlRequest;
 typedef struct _RANMessage RANMessage;
 typedef struct _UeInfoM UeInfoM;
 typedef struct _UeListM UeListM;
+typedef struct _CellLoadM CellLoadM;
 
 
 /* --- enums --- */
@@ -133,21 +134,24 @@ struct  _UeInfoM
    */
   int32_t rnti;
   /*
-   * specific ue's measurements (these will come from the gnb)
+   * Per-UE RSRP (Reference Signal Received Power)
    */
-  protobuf_c_boolean has_meas_type_1;
-  float meas_type_1;
-  protobuf_c_boolean has_meas_type_2;
-  float meas_type_2;
-  protobuf_c_boolean has_meas_type_3;
-  float meas_type_3;
+  protobuf_c_boolean has_rsrp;
+  float rsrp;
   /*
-   * specific ue's propoerties (these will be set by the xapp and sent to gnb)
+   * Per-UE BER (Bit Error Rate)
    */
-  protobuf_c_boolean has_prop_1;
-  protobuf_c_boolean prop_1;
-  protobuf_c_boolean has_prop_2;
-  float prop_2;
+  protobuf_c_boolean has_ber_uplink;
+  float ber_uplink;
+  protobuf_c_boolean has_ber_downlink;
+  float ber_downlink;
+  /*
+   * Per-UE MCS (Modulation and Coding Scheme)
+   */
+  protobuf_c_boolean has_mcs_uplink;
+  int32_t mcs_uplink;
+  protobuf_c_boolean has_mcs_downlink;
+  int32_t mcs_downlink;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
@@ -160,10 +164,24 @@ struct  _UeListM
   int32_t connected_ues;
   size_t n_ue_info;
   UeInfoM **ue_info;
+  /*
+   * Cell load information (allocated PRBs)
+   */
+  CellLoadM *cell_load;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0,NULL }
+    , 0, 0,NULL, NULL }
+
+
+struct  _CellLoadM
+{
+  ProtobufCMessage base;
+  int32_t used_prbs;
+};
+#define CELL_LOAD_M__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&cell_load_m__descriptor) \
+    , 0 }
 
 
 /* RANParamMapEntry methods */
@@ -299,6 +317,25 @@ UeListM *
 void   ue_list_m__free_unpacked
                      (UeListM *message,
                       ProtobufCAllocator *allocator);
+/* CellLoadM methods */
+void   cell_load_m__init
+                     (CellLoadM         *message);
+size_t cell_load_m__get_packed_size
+                     (const CellLoadM   *message);
+size_t cell_load_m__pack
+                     (const CellLoadM   *message,
+                      uint8_t             *out);
+size_t cell_load_m__pack_to_buffer
+                     (const CellLoadM   *message,
+                      ProtobufCBuffer     *buffer);
+CellLoadM *
+       cell_load_m__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   cell_load_m__free_unpacked
+                     (CellLoadM *message,
+                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*RANParamMapEntry_Closure)
@@ -322,6 +359,9 @@ typedef void (*UeInfoM_Closure)
 typedef void (*UeListM_Closure)
                  (const UeListM *message,
                   void *closure_data);
+typedef void (*CellLoadM_Closure)
+                 (const CellLoadM *message,
+                  void *closure_data);
 
 /* --- services --- */
 
@@ -337,6 +377,7 @@ extern const ProtobufCMessageDescriptor ran_control_request__descriptor;
 extern const ProtobufCMessageDescriptor ran_message__descriptor;
 extern const ProtobufCMessageDescriptor ue_info_m__descriptor;
 extern const ProtobufCMessageDescriptor ue_list_m__descriptor;
+extern const ProtobufCMessageDescriptor cell_load_m__descriptor;
 
 PROTOBUF_C__END_DECLS
 

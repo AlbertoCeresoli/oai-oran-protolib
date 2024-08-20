@@ -322,6 +322,51 @@ void   ue_list_m__free_unpacked
   assert(message->base.descriptor == &ue_list_m__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   cell_load_m__init
+                     (CellLoadM         *message)
+{
+  static const CellLoadM init_value = CELL_LOAD_M__INIT;
+  *message = init_value;
+}
+size_t cell_load_m__get_packed_size
+                     (const CellLoadM *message)
+{
+  assert(message->base.descriptor == &cell_load_m__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t cell_load_m__pack
+                     (const CellLoadM *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &cell_load_m__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t cell_load_m__pack_to_buffer
+                     (const CellLoadM *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &cell_load_m__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+CellLoadM *
+       cell_load_m__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (CellLoadM *)
+     protobuf_c_message_unpack (&cell_load_m__descriptor,
+                                allocator, len, data);
+}
+void   cell_load_m__free_unpacked
+                     (CellLoadM *message,
+                      ProtobufCAllocator *allocator)
+{
+  if(!message)
+    return;
+  assert(message->base.descriptor == &cell_load_m__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 static const ProtobufCFieldDescriptor ran_param_map_entry__field_descriptors[4] =
 {
   {
@@ -605,60 +650,60 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[6] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "meas_type_1",
+    "rsrp",
     2,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_meas_type_1),
-    offsetof(UeInfoM, meas_type_1),
+    offsetof(UeInfoM, has_rsrp),
+    offsetof(UeInfoM, rsrp),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "meas_type_2",
+    "ber_uplink",
     3,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_meas_type_2),
-    offsetof(UeInfoM, meas_type_2),
+    offsetof(UeInfoM, has_ber_uplink),
+    offsetof(UeInfoM, ber_uplink),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "meas_type_3",
+    "ber_downlink",
     4,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_meas_type_3),
-    offsetof(UeInfoM, meas_type_3),
+    offsetof(UeInfoM, has_ber_downlink),
+    offsetof(UeInfoM, ber_downlink),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "prop_1",
+    "mcs_uplink",
     5,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_BOOL,
-    offsetof(UeInfoM, has_prop_1),
-    offsetof(UeInfoM, prop_1),
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(UeInfoM, has_mcs_uplink),
+    offsetof(UeInfoM, mcs_uplink),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "prop_2",
+    "mcs_downlink",
     6,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_prop_2),
-    offsetof(UeInfoM, prop_2),
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(UeInfoM, has_mcs_downlink),
+    offsetof(UeInfoM, mcs_downlink),
     NULL,
     NULL,
     0,             /* flags */
@@ -666,12 +711,12 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[6] =
   },
 };
 static const unsigned ue_info_m__field_indices_by_name[] = {
-  1,   /* field[1] = meas_type_1 */
-  2,   /* field[2] = meas_type_2 */
-  3,   /* field[3] = meas_type_3 */
-  4,   /* field[4] = prop_1 */
-  5,   /* field[5] = prop_2 */
+  3,   /* field[3] = ber_downlink */
+  2,   /* field[2] = ber_uplink */
+  5,   /* field[5] = mcs_downlink */
+  4,   /* field[4] = mcs_uplink */
   0,   /* field[0] = rnti */
+  1,   /* field[1] = rsrp */
 };
 static const ProtobufCIntRange ue_info_m__number_ranges[1 + 1] =
 {
@@ -693,7 +738,7 @@ const ProtobufCMessageDescriptor ue_info_m__descriptor =
   (ProtobufCMessageInit) ue_info_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[2] =
+static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[3] =
 {
   {
     "connected_ues",
@@ -719,15 +764,28 @@ static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[2] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "cell_load",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(UeListM, cell_load),
+    &cell_load_m__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned ue_list_m__field_indices_by_name[] = {
+  2,   /* field[2] = cell_load */
   0,   /* field[0] = connected_ues */
   1,   /* field[1] = ue_info */
 };
 static const ProtobufCIntRange ue_list_m__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 0, 3 }
 };
 const ProtobufCMessageDescriptor ue_list_m__descriptor =
 {
@@ -737,11 +795,49 @@ const ProtobufCMessageDescriptor ue_list_m__descriptor =
   "UeListM",
   "",
   sizeof(UeListM),
-  2,
+  3,
   ue_list_m__field_descriptors,
   ue_list_m__field_indices_by_name,
   1,  ue_list_m__number_ranges,
   (ProtobufCMessageInit) ue_list_m__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor cell_load_m__field_descriptors[1] =
+{
+  {
+    "used_prbs",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_INT32,
+    0,   /* quantifier_offset */
+    offsetof(CellLoadM, used_prbs),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned cell_load_m__field_indices_by_name[] = {
+  0,   /* field[0] = used_prbs */
+};
+static const ProtobufCIntRange cell_load_m__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor cell_load_m__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "cell_load_m",
+  "CellLoadM",
+  "CellLoadM",
+  "",
+  sizeof(CellLoadM),
+  1,
+  cell_load_m__field_descriptors,
+  cell_load_m__field_indices_by_name,
+  1,  cell_load_m__number_ranges,
+  (ProtobufCMessageInit) cell_load_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCEnumValue ran_message_type__enum_values_by_number[4] =
