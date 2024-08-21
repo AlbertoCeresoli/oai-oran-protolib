@@ -322,51 +322,6 @@ void   ue_list_m__free_unpacked
   assert(message->base.descriptor == &ue_list_m__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   cell_load_m__init
-                     (CellLoadM         *message)
-{
-  static const CellLoadM init_value = CELL_LOAD_M__INIT;
-  *message = init_value;
-}
-size_t cell_load_m__get_packed_size
-                     (const CellLoadM *message)
-{
-  assert(message->base.descriptor == &cell_load_m__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t cell_load_m__pack
-                     (const CellLoadM *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &cell_load_m__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t cell_load_m__pack_to_buffer
-                     (const CellLoadM *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &cell_load_m__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-CellLoadM *
-       cell_load_m__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (CellLoadM *)
-     protobuf_c_message_unpack (&cell_load_m__descriptor,
-                                allocator, len, data);
-}
-void   cell_load_m__free_unpacked
-                     (CellLoadM *message,
-                      ProtobufCAllocator *allocator)
-{
-  if(!message)
-    return;
-  assert(message->base.descriptor == &cell_load_m__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
 static const ProtobufCFieldDescriptor ran_param_map_entry__field_descriptors[4] =
 {
   {
@@ -800,44 +755,6 @@ const ProtobufCMessageDescriptor ue_list_m__descriptor =
   ue_list_m__field_indices_by_name,
   1,  ue_list_m__number_ranges,
   (ProtobufCMessageInit) ue_list_m__init,
-  NULL,NULL,NULL    /* reserved[123] */
-};
-static const ProtobufCFieldDescriptor cell_load_m__field_descriptors[1] =
-{
-  {
-    "used_prbs",
-    1,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_INT32,
-    0,   /* quantifier_offset */
-    offsetof(CellLoadM, used_prbs),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-};
-static const unsigned cell_load_m__field_indices_by_name[] = {
-  0,   /* field[0] = used_prbs */
-};
-static const ProtobufCIntRange cell_load_m__number_ranges[1 + 1] =
-{
-  { 1, 0 },
-  { 0, 1 }
-};
-const ProtobufCMessageDescriptor cell_load_m__descriptor =
-{
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "cell_load_m",
-  "CellLoadM",
-  "CellLoadM",
-  "",
-  sizeof(CellLoadM),
-  1,
-  cell_load_m__field_descriptors,
-  cell_load_m__field_indices_by_name,
-  1,  cell_load_m__number_ranges,
-  (ProtobufCMessageInit) cell_load_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCEnumValue ran_message_type__enum_values_by_number[4] =

@@ -22,7 +22,6 @@ typedef struct _RANControlRequest RANControlRequest;
 typedef struct _RANMessage RANMessage;
 typedef struct _UeInfoM UeInfoM;
 typedef struct _UeListM UeListM;
-typedef struct _CellLoadM CellLoadM;
 
 
 /* --- enums --- */
@@ -175,16 +174,6 @@ struct  _UeListM
     , 0, 0,NULL }
 
 
-struct  _CellLoadM
-{
-  ProtobufCMessage base;
-  int32_t used_prbs;
-};
-#define CELL_LOAD_M__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&cell_load_m__descriptor) \
-    , 0 }
-
-
 /* RANParamMapEntry methods */
 void   ran_param_map_entry__init
                      (RANParamMapEntry         *message);
@@ -318,25 +307,6 @@ UeListM *
 void   ue_list_m__free_unpacked
                      (UeListM *message,
                       ProtobufCAllocator *allocator);
-/* CellLoadM methods */
-void   cell_load_m__init
-                     (CellLoadM         *message);
-size_t cell_load_m__get_packed_size
-                     (const CellLoadM   *message);
-size_t cell_load_m__pack
-                     (const CellLoadM   *message,
-                      uint8_t             *out);
-size_t cell_load_m__pack_to_buffer
-                     (const CellLoadM   *message,
-                      ProtobufCBuffer     *buffer);
-CellLoadM *
-       cell_load_m__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   cell_load_m__free_unpacked
-                     (CellLoadM *message,
-                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*RANParamMapEntry_Closure)
@@ -360,9 +330,6 @@ typedef void (*UeInfoM_Closure)
 typedef void (*UeListM_Closure)
                  (const UeListM *message,
                   void *closure_data);
-typedef void (*CellLoadM_Closure)
-                 (const CellLoadM *message,
-                  void *closure_data);
 
 /* --- services --- */
 
@@ -378,7 +345,6 @@ extern const ProtobufCMessageDescriptor ran_control_request__descriptor;
 extern const ProtobufCMessageDescriptor ran_message__descriptor;
 extern const ProtobufCMessageDescriptor ue_info_m__descriptor;
 extern const ProtobufCMessageDescriptor ue_list_m__descriptor;
-extern const ProtobufCMessageDescriptor cell_load_m__descriptor;
 
 PROTOBUF_C__END_DECLS
 
