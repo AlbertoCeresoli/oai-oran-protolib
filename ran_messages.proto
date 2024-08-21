@@ -71,7 +71,3 @@ message ue_list_m{
 
 }
 
-
-message cell_load_m {
-    required int32 used_prbs = 1;
-}
