@@ -152,10 +152,15 @@ struct  _UeInfoM
   int32_t mcs_uplink;
   protobuf_c_boolean has_mcs_downlink;
   int32_t mcs_downlink;
+  /*
+   * Cell load information (allocated PRBs)
+   */
+  protobuf_c_boolean has_cell_load;
+  int32_t cell_load;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
-    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _UeListM
@@ -164,14 +169,10 @@ struct  _UeListM
   int32_t connected_ues;
   size_t n_ue_info;
   UeInfoM **ue_info;
-  /*
-   * Cell load information (allocated PRBs)
-   */
-  CellLoadM *cell_load;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0,NULL, NULL }
+    , 0, 0,NULL }
 
 
 struct  _CellLoadM

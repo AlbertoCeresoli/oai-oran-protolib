@@ -62,7 +62,7 @@ message ue_info_m{
     optional int32 mcs_downlink = 6;
         
     // Cell load information (allocated PRBs)
-    optional int32 cell_load = 3;
+    optional int32 cell_load = 7;
 }
 
 message ue_list_m{
